@@ -63,7 +63,7 @@ export function Retail()
     return (
         <div div className='container' >
             {ButtonExampleAnimated()}
-            <h1>BEST PRICE GUARANTY !</h1>
+            <h1>BEST PRICE GUARANTEE !</h1>
             {
                 items.map(item =>
                 {

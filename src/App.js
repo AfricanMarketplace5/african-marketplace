@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { HomePage } from './HomePage';
 import { LoginPage } from './LoginPage';
 import { RegisterPage } from './RegisterPage';
-import { OwnerPage } from './OwnerPage';
+import { ClientSpace } from './ClientSpace';
 import { GlobalStyle } from "./Styled/Global";
 import { Container } from "./Styled/Container";
 import { Nav, NavHeader, NavItem, NavItems, NavItemButton } from "./Styled/Navbar";
@@ -39,8 +39,8 @@ export default function App()
         }
         else
         {
-            // If "username" is set it will redirect to "OwnerPage" page
-            setRedirectTo('/owner');
+            // If "username" is set it will redirect to "ClientSpace" page
+            setRedirectTo('/client/home');
         }
 
     }, [username]);
@@ -71,10 +71,14 @@ export default function App()
                     {/* Link to Home Page available always */}
                     <NavItem to="/">Home</NavItem>
 
-                    {username && products && <NavItem to="/retail/products">Retail</NavItem>}
+                    {/* Link to Grocery Products Page available for logged in user */}
+                    {username && products && <NavItem to="/retail/products">Grocery</NavItem>}
+                    
+                    {/* Link to Clothing Products Page available for logged in user */}
                     {username && <NavItem to="/clothing">Clothing</NavItem>}
-                    {/* Link to User Profile Page available for logged in user */}
-                    {username && <NavItem to="/owner">Wholesale</NavItem>}
+
+                    {/* Link to Client Home Page available for logged in user */}
+                    {username && <NavItem to="/client/home">Client Space</NavItem>}
 
                     {/* When user is logged in user "Logout" link display; otherwise "Login" link display */}
                     {
@@ -105,8 +109,8 @@ export default function App()
                         <Retail />
                     </Route>
 
-                    <Route path="/owner">
-                        <OwnerPage username={username} />
+                    <Route path="/client/home">
+                        <ClientSpace username={username} />
                     </Route>
 
                     <Route path="/login" >

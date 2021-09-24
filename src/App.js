@@ -9,6 +9,8 @@ import { Container } from "./Styled/Container";
 import { Nav, NavHeader, NavItem, NavItems, NavItemButton } from "./Styled/Navbar";
 import RetailProduct from "./RetailProduct";
 import RetailProductsList from "./RetailProductsList";
+import { Retail } from "./Retail";
+import 'semantic-ui-css/semantic.min.css';
 
 // Hard-coded products data.
 import { data } from "./data/products";
@@ -70,7 +72,7 @@ export default function App()
                     <NavItem to="/">Home</NavItem>
 
                     {products && <NavItem to="/retail/products">Retail</NavItem>}
-
+                    <NavItem to="/clothing">Clothing</NavItem>
                     {/* Link to User Profile Page available for logged in user */}
                     {username && <NavItem to="/owner">Wholesale</NavItem>}
 
@@ -97,6 +99,10 @@ export default function App()
 
                     <Route path="/retail/products">
                         <RetailProductsList products={products} />
+                    </Route>
+
+                    <Route path="/clothing">
+                        <Retail />
                     </Route>
 
                     <Route path="/owner">

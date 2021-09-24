@@ -71,8 +71,8 @@ export default function App()
                     {/* Link to Home Page available always */}
                     <NavItem to="/">Home</NavItem>
 
-                    {products && <NavItem to="/retail/products">Retail</NavItem>}
-                    <NavItem to="/clothing">Clothing</NavItem>
+                    {username && products && <NavItem to="/retail/products">Retail</NavItem>}
+                    {username && <NavItem to="/clothing">Clothing</NavItem>}
                     {/* Link to User Profile Page available for logged in user */}
                     {username && <NavItem to="/owner">Wholesale</NavItem>}
 
